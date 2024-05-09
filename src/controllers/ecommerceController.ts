@@ -12,7 +12,7 @@ export const createProduct = async (req: Request | any, res: Response) => {
   try {
     const verify = req.user;
 
-    //validate Product form inputs
+    //validate Product form inputs  
     const validateUser = creatProductSchema.validate(req.body, option);
 
     if (validateUser.error) {

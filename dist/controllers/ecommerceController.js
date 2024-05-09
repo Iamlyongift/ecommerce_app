@@ -126,6 +126,9 @@ const getUserProducts = (req, res) => __awaiter(void 0, void 0, void 0, function
             return res.status(404).json({ msg: "User not found" });
         }
         const getAllUserProducts = yield ecommerceModel_1.default.find({ user: user._id });
+        if (getAllUserProducts.length === 0) {
+            return res.status(404).json({ msg: "User has no products" });
+        }
         res.status(200).json({
             msg: "Products successfully fetched",
             getAllUserProducts,
